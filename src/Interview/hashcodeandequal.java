@@ -20,10 +20,10 @@ public class hashcodeandequal {
 		
 		//As per below and abocve scenario hashcode will generate unique but ?
 		String s1="Alpha";
-		String s2="Anish";
+		String s2="Alpha";
 		System.out.println(s1.hashCode()+" "+s2.hashCode());
 		//If objects are same then hashcode also will be same
-		
+		System.out.println(s1+" & "+s2+"="+s1.equals(s2));
 		
 		// here String is different and also we except that hashcode should be unique? See the output
 		String s3="FB";
@@ -31,6 +31,7 @@ public class hashcodeandequal {
 		System.out.println(s3.hashCode()+" "+s4.hashCode());
 		//Yesh it's same so hashcode() will not generate unique always and it's not trustable
 		// Hashcode is same but we are not sure that object is same it's generate
+		System.out.println(s3+" & "+s4+"="+s3.equals(s4));
 	}
 
 	

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -73,7 +75,58 @@ public class StreamsExample {
 		Stream.of(1,22,3,3,4445,5,798,5).forEach(x -> System.out.println(x));
 		String[] strs= {"Dog","Apple","Carrot","Bannana"};
 		Stream.of(strs).sorted((o1,o2) -> o1.compareTo(o2)).forEach(str->System.out.println(str));
- 
+		
+		String str=null;
+		String str2="Hello";
+		Optional<String> opt=Optional.ofNullable(str2);
+		System.out.println(opt);
+		//Optional<String> opt2=Optional.of(str);
+		//System.out.println(opt2);
+		
+		
+		
+		Employee emp=new Employee(1, "Sathish", 25735);
+		Employee emp2=new Employee(2, "Alpha K A", 15735);
+		Employee emp3=new Employee(3, "Alpha K A", 10735);
+		
+		Employee emp4=new Employee(4, "Anish R", 35735);
+		
+		List<Employee> listEmps=new ArrayList<Employee>();
+		listEmps.add(emp);
+		listEmps.add(emp2);
+		listEmps.add(emp3);
+		listEmps.add(emp4);
+		System.out.println(listEmps);
+		
+		listEmps.stream().sorted(Comparator.comparing((Employee e )-> e.getName()).thenComparing(Comparator.comparing((Employee e2) -> e2.getSalary() ).reversed())).forEach(e->System.out.println(e));
+		System.out.println("Stream with ::");
+		listEmps.stream().sorted(Comparator.comparing(Employee::getName).thenComparing(Comparator.comparing(Employee::getSalary).reversed())).forEach(e->System.out.println(e));
+
+		System.out.println("new");
+		
+		listEmps.stream().filter(e -> (e.getId()%2==0 && e.getSalary()>15000) ).sorted(Comparator.comparing(Employee::getSalary).reversed()).forEach(e->System.out.println(e));
+		
+		
+		
+		listEmps.parallelStream().filter(e -> (e.getId()%2==0 && e.getSalary()>15000) ).sorted(Comparator.comparing(Employee::getSalary).reversed()).forEach(e->System.out.println(e));
+		
+		
+		
+		
+		
+		List<String> newstr=Arrays.asList("Apple","Orange","Banana","ice","Soup");
+		
+		newstr.stream().map(st -> st.length()).forEach(System.out::println);
+		System.out.println(":: -> way");
+		newstr.stream().map(String::length).forEach(System.out::println);
+		System.out.println("uppercase");
+		newstr.stream().map(String::toUpperCase).forEach(System.out::println);
+		
+		
+		
+		
+		
+		
 	}
 
 }

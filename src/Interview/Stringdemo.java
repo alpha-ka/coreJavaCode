@@ -19,26 +19,121 @@ public class Stringdemo {
 		//Char and String
 		
 		String so="Alpha";
+		System.out.println("First Name : "+so);
+		System.out.println("-------------charAt(3)----------");
 		char c=so.charAt(3);
-		System.out.println(so +" "+c);
+		System.out.println(c);
+		System.out.println("------------length()-----------");
+		System.out.println(so.length());
+		String so2=" K A";
+		System.out.println("Last Name : "+so2);
+		System.out.println("------------concat()-----------");
+		String name=so.concat(so2);
+		System.out.println(name);
 		
+		System.out.println("------------toCharArray() -> String to char-----------");
 		char c1[] =so.toCharArray();
+		System.out.println("------------Arrays.toString(c)-----------");
 		System.out.println(Arrays.toString(c1));
-		
+		System.out.println("------------Character.toString() -> Char to String-----------");
 		String newso=Character.toString(c);
-		
+		System.out.println(newso);
+		System.out.println("------------new String(char)-> Char array to String----------");
 		String newso2=new String(c1);
-		System.out.println(newso +"      "+newso2);
+		System.out.println(newso2);
 		
+		System.out.println("------------new String(char,start,end)-> Char to String with substring----------");
 
 		String newso3=new String(c1,2,2);
 		System.out.println(newso3);
 		
+		System.out.println("------------compare() string not immportant----------");
+		
+		System.out.println(so+" compare "+ so2+" "+so.compareTo(so2));
+		
+		System.out.println("------------contains() string important----------");
+		
+		System.out.println(newso2+" contains "+ newso+" "+newso2.contains(newso));
+		
+		String no="1,2,2,3,3,4";		
+		System.out.println("------------split() string important----------");
+		System.out.println(no);
+		String[] strarr=no.split(",");
+		
+		System.out.println(Arrays.toString(strarr));
+		
+		System.out.println("------------toLowerCase()----------");
+		newso2=newso2.toLowerCase();
+		System.out.println(newso2);
+		System.out.println("------------indexOf()&lastIndexOf() ---------");
+		System.out.println("index of a in "+newso2+" is "+newso2.indexOf('a'));
+		System.out.println("last index of a in "+newso2+" is "+newso2.lastIndexOf('a'));
+		
+		System.out.println("------------toUpperCase()----------");
+		newso2=newso2.toUpperCase();
+		System.out.println(newso2);
+		
+		
+		Integer obj = new Integer(10);
+		System.out.println("------------Integer to String----------");
+		String strint=obj.toString();
+		System.out.println("Integer is 10 to string : "+strint);
+		
+		System.out.println("------------replace()----------");
+		String replace = newso2.replace('A', 'O');		
+		System.out.println(replace);
+		
+		System.out.println("------------substring()----------");
+		String substr = newso2.substring(1,3);
+		System.out.println(substr);		
 		
 		
 		
+		System.out.println("------------reverse() string doesn't  have so Stringbuffer will do----------");
 		
+		StringBuffer sb=new StringBuffer(newso2);
+		System.out.println(sb.reverse());
 		
+		System.out.println("-----------Join list of Strings---");
+		List<String> listStr=Arrays.asList("Banana","Apple","Mango","Orange");
+		System.out.println(listStr.toString());
+		
+		String charBwn="";
+		String joined=String.join(charBwn, listStr);
+		System.out.println(joined);
+		System.out.println("-----------String isEmpty---");
+		String test0="";
+		System.out.println(test0.isEmpty());
+		System.out.println("-----------String startsWith()---");
+		String test="Alpha";
+		System.out.println(test +" starts with A? "+test.startsWith("A"));
+		
+		System.out.println(test +" starts with T? "+test.startsWith("T"));
+		System.out.println("-----------String endsWith()---");
+		
+		System.out.println(test +" ends with A? "+test.endsWith("A"));
+		
+		System.out.println(test +" ends with a? "+test.endsWith("a"));
+		
+		System.out.println("---------------String Join()-------------------");
+		
+		String [] more={"I","Love","you"};
+		
+		String more1= String.join(" ", more);
+		System.out.println(more1);
+		
+		System.out.println("---------------String valueOf(int)-------------------");
+		int value=30;  
+		String s13=String.valueOf(value);  
+		System.out.println(s13);
+		System.out.println("------------------------toCharArray()--------------------------------");
+		char c3[]=more1.toCharArray();
+		System.out.println(Arrays.toString(c3));
+		
+		System.out.println("--------------------------char array to String------------------------------------");
+		   char[] arr = { 'p', 'q', 'r', 's' };
+		      String d44=String.valueOf(arr);
+		      System.out.println(d44);
 		
 		//String s1,s2;
 //		
@@ -149,16 +244,16 @@ System.out.println("str2 -> "+str2+ " -> " +str2.hashCode());
 // 
 //
 //
-////Java 8 String join() below statement is import array and arraylist initialize
-// 
-//String strarray[]={"Alpha","is","a","Software Engineer"};
-////or
-////String strarray[]=new String[]{"Alpha","is","a","Software Engineer"};
-//List<String> list=Arrays.asList(strarray);
-//System.out.println(list);
-//String output=String.join(" ", strarray);
-//
-//System.out.println(output);
+//Java 8 String join() below statement is import array and arraylist initialize
+ 
+String strarray[]={"Alpha","is","a","Software Engineer"};
+//or
+//String strarray[]=new String[]{"Alpha","is","a","Software Engineer"};
+List<String> list=Arrays.asList(strarray);
+System.out.println(list);
+String output=String.join(" ", strarray);
+
+System.out.println(output);
 ////
 //////Java 9 String Methods 
 ////
@@ -210,10 +305,7 @@ System.out.println("str2 -> "+str2+ " -> " +str2.hashCode());
 
 }
 
-
-
-
-
+ 
 
 }
 

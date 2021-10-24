@@ -8,7 +8,7 @@ public class Emailregex {
     Scanner scan=new Scanner(System.in);
     String str=scan.next();
     boolean b=false;
-    b=Pattern.matches("[a-zA-Z0-9_.-]+@[a-zA-Z0-9_.]+.[a-zA-Z0-9]{3}",str);
+    b=Pattern.matches("[a-zA-Z0-9.-]+@[a-zA-Z0-9]+.[a-zA-Z0-9]{3}",str);
     if(b){
     System.out.println("Gmail Valid");
     }

@@ -3,10 +3,21 @@ package zoho;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
+
+import programs.calender;
 
 public class dates {
 
@@ -70,18 +81,40 @@ public class dates {
 // 			System.out.println(noofdays1+" "+noofdays2);
 // 			
 		 
-		String dob = "2021-02-27";
+		String dob = "2021-02-27 11:24:00";
 	 
-		SimpleDateFormat sdf1=new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat sdf2=new SimpleDateFormat("MM/dd/yyyy");
+		SimpleDateFormat sdf1=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sdf2=new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 	 
-		String dateofbirth = sdf2.format(sdf1.parse(dob));
+		Date date=  sdf1.parse(dob);
+		String dateofbirth = sdf2.format(date);
  	 
  System.out.println(dob);
  System.out.println(dateofbirth);
-	 
-		
-	 
+ 
+ 
+
+System.out.println("date class returns UTC?: "+new Date());
+ 
+ 
+LocalDateTime localdatetime=LocalDateTime.now();
+System.out.println("UTC: "+localdatetime);
+
+
+Instant utcInstant=localdatetime.toInstant(ZoneOffset.UTC);
+
+
+ZonedDateTime utcZoned=ZonedDateTime.ofInstant(utcInstant, ZoneId.of("UTC"));
+ 
+
+  System.out.println("IST: "+utcZoned.withZoneSameInstant(ZoneId.of("Asia/Kolkata")).toLocalDateTime());
+  
+ 
+  Calendar calendar = Calendar.getInstance();
+	calendar.setTime(date);
+	System.out.println(calendar.getTime());
+	calendar.add(Calendar.MINUTE, 10);
+	System.out.println(calendar.getTime());
 	}
 
 }
